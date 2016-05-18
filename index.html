@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Speaking puzzle</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-language" content="en">
+	<meta name="Author" lang="en" content="arteducation.eu - Francisco Perez">
+	<meta name="Description" lang="en" content="Speaking puzzle">
+	<meta name="Keywords" lang="en" content="snapfit.js, javascript puzzle, jigsaw puzzle, Internet Explorer, Mozilla, Firefox, Opera, Safari">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+a { color: blue; font-style:italic; text-decoration:none; }
+tt {color: green;}
+b {color: #993333;}
+body { background: url(images/backgrnd.jpg); color: black; font-family: Georgia; line-height: 1.5; margin: 0.5em 1em;}
+h2 { line-height: 1; }
+.demo { float: left; margin: 0px; padding: 12px; text-align: left;}
+.logo { float: left; margin: 0 1em 1em 0; position: relative; width: 360px; height: 160px; }
+#guru { float: none; padding: 4px; width: 99%; height: auto; text-align: center; background-color: black; }
+#guru div { float: none; border: solid 3px red; padding: 4px; font-family: monospace; font-size: 1.25em; width: auto; height: auto; color: red; text-align: center; text-decoration: blink; }
+.bookmarks { white-space: nowrap; width: 98%; margin: 0; padding-top: 10px; border-top: 1px dotted gray;}
+</style>
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<script type="text/javascript" src="snapfit.js"></script>
+</head>
+<body><noscript><div id="guru" title="By this you can recognize the Amiga fan!"><div><b>Guru Meditation</b> - With deactivated JavaScript: Images stay unmodified!</div></div></noscript>
+
+
+<h2>Speaking puzzle (work in progress)</h2>
+
+<div class="demo"><div style="outline: 1px solid silver"><img id="girl" onload="snapfit.add(this,{callback: function() {alert('You solved the puzzle, this face is supposed to be happy!');}, aborder:true, aimage:true, polygon:true, space:20});" src="images/girl.jpg" width="507" height="707" border="0" alt="girl" /></div>
+<strong>Level</strong> <select id="level" size="1" onchange="snapfit.reset(document.getElementById('girl'),parseInt(this.options[this.selectedIndex].value));">
+<option value="0">160px (extrem low)</option>
+<option value="1">128px (very low)</option>
+<option value="2">104px (low)</option>
+<option value="3"selected="selected">080px (medium)</option>
+<option value="4">064px (high)</option>
+<option value="5">056px (very high)</option>
+<option value="6">048px (extrem high)</option>
+</select>
+<button type="button" onclick="snapfit.admix(document.getElementById('girl'));">Admix</button>
+<button type="button" onclick="snapfit.solve(document.getElementById('girl') );">Solve</button>
+<button type="button" onclick="document.getElementById('happy').play()");">Audio</button>
+<br>
+<small><b>move</b>: Click 'n drag!<br><b>rotate</b>: Doubleclick!<br><b>flip-y</b>: Doubleclick 'n press [shift] or Middle Mouse Button!<br><b>flip-x</b>: Doubleclick 'n press [alt] or Right Mouse Button!</small>
+</div>
+<audio id="happy">
+  <source src="sounds/facehappy.mp3"> 
+</audio>
+<div class="demo"><div style="outline: 1px solid silver"><img id="girl2" onload="snapfit.add(this,{callback: function() {alert('You solved the puzzle, this face is supposed to be angry!');}, aborder:true, aimage:true, polygon:true, space:20, mixed:true,level:1});" src="images/girl2.jpg" width="507" height="707" border="0" alt="girl2" /></div>
+<strong>Level</strong> <select id="level" size="1" onchange="snapfit.reset(document.getElementById('girl2'),parseInt(this.options[this.selectedIndex].value));">
+<option value="0">160px (extrem low)</option>
+<option value="1">128px (very low)</option>
+<option value="2">104px (low)</option>
+<option value="3"selected="selected">080px (medium)</option>
+<option value="4">064px (high)</option>
+<option value="5">056px (very high)</option>
+<option value="6">048px (extrem high)</option>
+</select>
+<button type="button" onclick="snapfit.admix(document.getElementById('girl2'));">Admix</button>
+<button type="button" onclick="snapfit.solve(document.getElementById('girl2') );">Solve</button>
+<button type="button" onclick="document.getElementById('angry').play()");">Audio</button>
+<br>
+<small><b>move</b>: Click 'n drag!<br><b>rotate</b>: Doubleclick!<br><b>flip-y</b>: Doubleclick 'n press [shift] or Middle Mouse Button!<br><b>flip-x</b>: Doubleclick 'n press [alt] or Right Mouse Button!</small>
+</div>
+<audio id="angry">
+  <source src="sounds/faceangry.mp3"> 
+</audio>
+</body>
+</html>
